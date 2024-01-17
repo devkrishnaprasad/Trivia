@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:trivia/pages/home/home.dart';
+import 'package:trivia/pages/learder_board/learder_board.dart';
+import 'package:trivia/pages/mcq/view/mcq.dart';
 
 void main() {
   runApp(const MyApp());
@@ -30,14 +32,5 @@ class MyApp extends StatelessWidget {
       },
       child: const HomePage(),
     );
-
-    // MaterialApp(
-    //   title: 'Flutter Demo',
-    //   theme: ThemeData(
-    //     colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-    //     useMaterial3: true,
-    //   ),
-    //   home:
-    // );
   }
 }
