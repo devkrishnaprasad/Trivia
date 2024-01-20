@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:trivia/pages/mcq/controller/mcq_controller.dart';
+import 'package:trivia/pages/mcq/view/mcq.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -9,6 +12,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  MCQController _mcqController = Get.put(MCQController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -200,154 +204,175 @@ class _HomePageState extends State<HomePage> {
                       children: [
                         Column(
                           children: [
-                            Padding(
-                              padding: EdgeInsets.only(left: 20.w),
-                              child: Container(
-                                height: 150.h,
-                                width: 150.w,
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(10),
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: Colors.grey.withOpacity(0.3),
-                                      spreadRadius: 2,
-                                      blurRadius: 5,
-                                      offset: const Offset(0, 3),
-                                    ),
-                                  ],
-                                ),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Padding(
-                                      padding: EdgeInsets.only(left: 10.w),
-                                      child: Image.asset(
-                                        'assets/images/sports.png',
-                                        width: 100.w,
-                                        height: 100.h,
+                            GestureDetector(
+                              onTap: () {
+                                _mcqController.getQuestionBank('sports');
+                                Get.to(const MCQWidget());
+                              },
+                              child: Padding(
+                                padding: EdgeInsets.only(left: 20.w),
+                                child: Container(
+                                  height: 150.h,
+                                  width: 150.w,
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(10),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Colors.grey.withOpacity(0.3),
+                                        spreadRadius: 2,
+                                        blurRadius: 5,
+                                        offset: const Offset(0, 3),
                                       ),
-                                    ),
-                                    Padding(
-                                      padding:
-                                          EdgeInsets.only(left: 20.w, top: 5.h),
-                                      child: Text(
-                                        'Sports',
-                                        style: TextStyle(
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: 15.sp),
+                                    ],
+                                  ),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsets.only(left: 10.w),
+                                        child: Image.asset(
+                                          'assets/images/sports.png',
+                                          width: 100.w,
+                                          height: 100.h,
+                                        ),
                                       ),
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsets.only(
-                                        left: 20.w,
+                                      Padding(
+                                        padding: EdgeInsets.only(
+                                            left: 20.w, top: 5.h),
+                                        child: Text(
+                                          'Sports',
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 15.sp),
+                                        ),
                                       ),
-                                      child: const Text(
-                                        '50 questions',
+                                      Padding(
+                                        padding: EdgeInsets.only(
+                                          left: 20.w,
+                                        ),
+                                        child: const Text(
+                                          '50 questions',
+                                        ),
                                       ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                            Padding(
-                              padding: EdgeInsets.only(left: 20.w, top: 20.h),
-                              child: Container(
-                                height: 200.h,
-                                width: 150.w,
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(10),
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: Colors.grey.withOpacity(0.3),
-                                      spreadRadius: 2,
-                                      blurRadius: 5,
-                                      offset: const Offset(0, 3),
-                                    ),
-                                  ],
-                                ),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Padding(
-                                      padding: EdgeInsets.only(
-                                          left: 10.w, top: 20.h),
-                                      child: Image.asset(
-                                        'assets/images/math.png',
-                                        width: 100.w,
-                                        height: 100.h,
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsets.only(
-                                          left: 20.w, top: 20.h),
-                                      child: Text(
-                                        'Maths',
-                                        style: TextStyle(
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: 15.sp),
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsets.only(
-                                        left: 20.w,
-                                      ),
-                                      child: const Text(
-                                        '50 questions',
-                                      ),
-                                    ),
-                                  ],
+                                    ],
+                                  ),
                                 ),
                               ),
                             ),
-                            Padding(
-                              padding: EdgeInsets.only(left: 20.w, top: 20.h),
-                              child: Container(
-                                height: 150.h,
-                                width: 150.w,
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(10),
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: Colors.grey.withOpacity(0.3),
-                                      spreadRadius: 2,
-                                      blurRadius: 5,
-                                      offset: const Offset(0, 3),
-                                    ),
-                                  ],
+                            GestureDetector(
+                              onTap: () {
+                                _mcqController.getQuestionBank('maths');
+                                Get.to(const MCQWidget());
+                              },
+                              child: Padding(
+                                padding: EdgeInsets.only(left: 20.w, top: 20.h),
+                                child: Container(
+                                  height: 200.h,
+                                  width: 150.w,
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(10),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Colors.grey.withOpacity(0.3),
+                                        spreadRadius: 2,
+                                        blurRadius: 5,
+                                        offset: const Offset(0, 3),
+                                      ),
+                                    ],
+                                  ),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsets.only(
+                                            left: 10.w, top: 20.h),
+                                        child: Image.asset(
+                                          'assets/images/math.png',
+                                          width: 100.w,
+                                          height: 100.h,
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsets.only(
+                                            left: 20.w, top: 20.h),
+                                        child: Text(
+                                          'Maths',
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 15.sp),
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsets.only(
+                                          left: 20.w,
+                                        ),
+                                        child: const Text(
+                                          '50 questions',
+                                        ),
+                                      ),
+                                    ],
+                                  ),
                                 ),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Padding(
-                                      padding: EdgeInsets.only(left: 10.w),
-                                      child: Image.asset(
-                                        'assets/images/tech.png',
-                                        width: 100.w,
-                                        height: 100.h,
+                              ),
+                            ),
+                            GestureDetector(
+                              onTap: () {
+                                _mcqController.getQuestionBank('tech');
+                                Get.to(const MCQWidget());
+                              },
+                              child: Padding(
+                                padding: EdgeInsets.only(left: 20.w, top: 20.h),
+                                child: Container(
+                                  height: 150.h,
+                                  width: 150.w,
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(10),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Colors.grey.withOpacity(0.3),
+                                        spreadRadius: 2,
+                                        blurRadius: 5,
+                                        offset: const Offset(0, 3),
                                       ),
-                                    ),
-                                    Padding(
-                                      padding:
-                                          EdgeInsets.only(left: 20.w, top: 5.h),
-                                      child: Text(
-                                        'Technology',
-                                        style: TextStyle(
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: 15.sp),
+                                    ],
+                                  ),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsets.only(left: 10.w),
+                                        child: Image.asset(
+                                          'assets/images/tech.png',
+                                          width: 100.w,
+                                          height: 100.h,
+                                        ),
                                       ),
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsets.only(
-                                        left: 20.w,
+                                      Padding(
+                                        padding: EdgeInsets.only(
+                                            left: 20.w, top: 5.h),
+                                        child: Text(
+                                          'Technology',
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 15.sp),
+                                        ),
                                       ),
-                                      child: const Text(
-                                        '50 questions',
+                                      Padding(
+                                        padding: EdgeInsets.only(
+                                          left: 20.w,
+                                        ),
+                                        child: const Text(
+                                          '50 questions',
+                                        ),
                                       ),
-                                    ),
-                                  ],
+                                    ],
+                                  ),
                                 ),
                               ),
                             ),
@@ -355,153 +380,174 @@ class _HomePageState extends State<HomePage> {
                         ),
                         Column(
                           children: [
-                            Padding(
-                              padding: EdgeInsets.only(left: 20.w, top: 20.h),
-                              child: Container(
-                                height: 170.h,
-                                width: 150.w,
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(10),
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: Colors.grey.withOpacity(0.3),
-                                      spreadRadius: 2,
-                                      blurRadius: 5,
-                                      offset: const Offset(0, 3),
-                                    ),
-                                  ],
-                                ),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: Image.asset(
-                                        'assets/images/science.png',
-                                        width: 100.w,
-                                        height: 100.h,
+                            GestureDetector(
+                              onTap: () {
+                                _mcqController.getQuestionBank('science');
+                                Get.to(const MCQWidget());
+                              },
+                              child: Padding(
+                                padding: EdgeInsets.only(left: 20.w, top: 20.h),
+                                child: Container(
+                                  height: 170.h,
+                                  width: 150.w,
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(10),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Colors.grey.withOpacity(0.3),
+                                        spreadRadius: 2,
+                                        blurRadius: 5,
+                                        offset: const Offset(0, 3),
                                       ),
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsets.only(
-                                          left: 20.w, top: 10.h),
-                                      child: const Text(
-                                        'Science',
-                                        style: TextStyle(
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: 20),
+                                    ],
+                                  ),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: Image.asset(
+                                          'assets/images/science.png',
+                                          width: 100.w,
+                                          height: 100.h,
+                                        ),
                                       ),
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsets.only(
-                                        left: 20.w,
+                                      Padding(
+                                        padding: EdgeInsets.only(
+                                            left: 20.w, top: 10.h),
+                                        child: const Text(
+                                          'Science',
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 20),
+                                        ),
                                       ),
-                                      child: const Text(
-                                        '30 questions',
+                                      Padding(
+                                        padding: EdgeInsets.only(
+                                          left: 20.w,
+                                        ),
+                                        child: const Text(
+                                          '30 questions',
+                                        ),
                                       ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                            Padding(
-                              padding: EdgeInsets.only(left: 20.w, top: 20.h),
-                              child: Container(
-                                height: 170.h,
-                                width: 150.w,
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(10),
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: Colors.grey.withOpacity(0.3),
-                                      spreadRadius: 2,
-                                      blurRadius: 5,
-                                      offset: const Offset(0, 3),
-                                    ),
-                                  ],
-                                ),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: Image.asset(
-                                        'assets/images/history.png',
-                                        width: 100.w,
-                                        height: 100.h,
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsets.only(
-                                          left: 20.w, top: 10.h),
-                                      child: const Text(
-                                        'History',
-                                        style: TextStyle(
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: 20),
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsets.only(
-                                        left: 20.w,
-                                      ),
-                                      child: const Text(
-                                        '50 questions',
-                                      ),
-                                    ),
-                                  ],
+                                    ],
+                                  ),
                                 ),
                               ),
                             ),
-                            Padding(
-                              padding: EdgeInsets.only(left: 20.w, top: 20.h),
-                              child: Container(
-                                height: 170.h,
-                                width: 150.w,
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(10),
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: Colors.grey.withOpacity(0.3),
-                                      spreadRadius: 2,
-                                      blurRadius: 5,
-                                      offset: const Offset(0, 3),
-                                    ),
-                                  ],
+                            GestureDetector(
+                              onTap: () {
+                                _mcqController.getQuestionBank('history');
+                                Get.to(const MCQWidget());
+                              },
+                              child: Padding(
+                                padding: EdgeInsets.only(left: 20.w, top: 20.h),
+                                child: Container(
+                                  height: 170.h,
+                                  width: 150.w,
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(10),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Colors.grey.withOpacity(0.3),
+                                        spreadRadius: 2,
+                                        blurRadius: 5,
+                                        offset: const Offset(0, 3),
+                                      ),
+                                    ],
+                                  ),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: Image.asset(
+                                          'assets/images/history.png',
+                                          width: 100.w,
+                                          height: 100.h,
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsets.only(
+                                            left: 20.w, top: 10.h),
+                                        child: const Text(
+                                          'History',
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 20),
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsets.only(
+                                          left: 20.w,
+                                        ),
+                                        child: const Text(
+                                          '50 questions',
+                                        ),
+                                      ),
+                                    ],
+                                  ),
                                 ),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: Image.asset(
-                                        'assets/images/Geography.png',
-                                        width: 100.w,
-                                        height: 100.h,
+                              ),
+                            ),
+                            GestureDetector(
+                              onTap: () {
+                                _mcqController.getQuestionBank('geography');
+                                Get.to(const MCQWidget());
+                              },
+                              child: Padding(
+                                padding: EdgeInsets.only(left: 20.w, top: 20.h),
+                                child: Container(
+                                  height: 170.h,
+                                  width: 150.w,
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(10),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Colors.grey.withOpacity(0.3),
+                                        spreadRadius: 2,
+                                        blurRadius: 5,
+                                        offset: const Offset(0, 3),
                                       ),
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsets.only(
-                                          left: 20.w, top: 10.h),
-                                      child: const Text(
-                                        'Geography',
-                                        style: TextStyle(
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: 20),
+                                    ],
+                                  ),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: Image.asset(
+                                          'assets/images/Geography.png',
+                                          width: 100.w,
+                                          height: 100.h,
+                                        ),
                                       ),
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsets.only(
-                                        left: 20.w,
+                                      Padding(
+                                        padding: EdgeInsets.only(
+                                            left: 20.w, top: 10.h),
+                                        child: const Text(
+                                          'Geography',
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 20),
+                                        ),
                                       ),
-                                      child: const Text(
-                                        '50 questions',
+                                      Padding(
+                                        padding: EdgeInsets.only(
+                                          left: 20.w,
+                                        ),
+                                        child: const Text(
+                                          '50 questions',
+                                        ),
                                       ),
-                                    ),
-                                  ],
+                                    ],
+                                  ),
                                 ),
                               ),
                             )
