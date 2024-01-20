@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/route_manager.dart';
 import 'package:trivia/pages/learder_board/user_card.dart';
 
 class LearderBoard extends StatefulWidget {
@@ -23,7 +24,9 @@ class _LearderBoardState extends State<LearderBoard> {
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
         leading: IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Get.back();
+            },
             icon: const Icon(
               Icons.arrow_back_ios_new,
               color: Colors.white,
