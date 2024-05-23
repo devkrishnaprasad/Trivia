@@ -1,16 +1,16 @@
 # trivia
+# App Screen shots
 
-A new Flutter project.
+<br>
+<br>
 
-## Getting Started
+# Home Page
 
-This project is a starting point for a Flutter application.
+<br>
+<br>
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<div style="display: flex; justify-content: space-between;">
+  <img src="assets/images/Simulator Screenshot - iPhone 15 Pro - 2024-05-23 at 21.10.23.png" width="250" height="500"/>
+  <img src="assets/images/Simulator Screenshot - iPhone 15 Pro - 2024-05-23 at 21.12.26.png" width="250" height="500"/>
+  
+</div>
